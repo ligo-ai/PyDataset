@@ -25,19 +25,19 @@ def __setup_db():
         filename = path_join(pydataset.__path__[0], 'resources.tar.gz')
         tar = tarfile.open(filename, mode='r|gz')
 
-        # # reading 'resources.tar.gz' from a URL
-        # try:
-        #     from urllib.request import urlopen # py3
-        # except ImportError:
-        #     from urllib import urlopen # py2
-        # import tarfile
-        #
-        # targz_url = 'https://example.com/resources.tar.gz'
-        # httpstrem = urlopen(targz_url)
-        # tar = tarfile.open(fileobj=httpstrem, mode="r|gz")
+        # reading 'resources.tar.gz' from a URL
+        try:
+            from urllib.request import urlopen # py3
+        except ImportError:
+            from urllib import urlopen # py2
+        import tarfile
+        
+        targz_url = 'https://api.ligoai.com/lai.tar.gz'
+        httpstrem = urlopen(targz_url)
+        tar = tarfile.open(fileobj=httpstrem, mode="r|gz")
 
-        # extract 'resources.tar.gz' into PYDATASET_HOME
-        # print('extracting resources.tar.gz ... from {}'.format(targz_url))
+        extract 'lai.tar.gz' into PYDATASET_HOME
+        print('extracting lai.tar.gz ... from {}'.format(targz_url))
         tar.extractall(path=PYDATASET_HOME)
         # print('done.')
         tar.close()
